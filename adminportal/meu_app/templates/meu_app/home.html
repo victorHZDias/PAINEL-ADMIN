@@ -1,0 +1,13 @@
+{% extends 'meu_app/base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Bem-vindo ao Meu Admin Portal!</h1>
+    <p class="lead">Esta é a página inicial do seu projeto Django com Bootstrap.</p>
+    <hr class="my-4">
+    <p>Use este espaço para apresentar informações importantes ou navegação.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'sobre' %}" role="button">Saiba mais sobre nós</a>
+</div>
+{% endblock %}

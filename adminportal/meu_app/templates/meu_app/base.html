@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Projeto{% endblock %}</title>
+    {% comment %} Carrega os arquivos estáticos {% endcomment %}
+    {% load static %}
+    {% comment %} Links do Bootstrap CSS {% endcomment %}
+    {% comment %} Se usando CDN: {% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% comment %} Se usando arquivos locais: {% endcomment %}
+    {# <link rel="stylesheet" href="{% static 'adminportal/css/bootstrap.min.css' %}"> #}
+
+    {% block extra_css %}{% endblock %} {# Para CSS adicional em páginas específicas #}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Meu Admin Portal</a> {# Mude 'home' para o nome da sua URL da página inicial #}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Início</a> {# Mude 'home' #}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sobre' %}">Sobre</a> {# Exemplo de link #}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}
+        {# Conteúdo específico da página virá aqui #}
+        {% endblock %}
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">© 2025 Meu Projeto. Todos os direitos reservados.</span>
+        </div>
+    </footer>
+
+    {% comment %} Scripts do Bootstrap JS {% endcomment %}
+    {% comment %} Se usando CDN: {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eOzxjHqpqDzX9N7" crossorigin="anonymous"></script>
+    {% comment %} Se usando arquivos locais: {% endcomment %}
+    {# <script src="{% static 'adminportal/js/bootstrap.bundle.min.js' %}"></script> #}
+
+    {% block extra_js %}{% endblock %} {# Para JavaScript adicional em páginas específicas #}
+</body>
+</html>
